@@ -49,3 +49,72 @@ void printList(Node *head)
 
     printf("NULL\n");
 }
+void insertAtPosition(Node **head, int data, int position)
+{
+    if (position == 0)
+    {
+        insertAtBeginning(head, data);
+        return;
+    }
+
+    Node *newNode = createNode(data);
+    Node *temp = *head;
+
+    for (int i = 0; i < position - 1 && temp != NULL; i++)
+    {
+        temp = temp->next;
+    }
+
+    if (temp == NULL)
+    {
+        printf("Posicion invalida\n");
+        return;
+    }
+
+    newNode->next = temp->next;
+    temp->next = newNode;
+}
+
+void deleteNode(Node **head, int data)
+{
+    Node *temp = *head;
+    Node *prev = NULL;
+
+    if (temp != NULL && temp->data == data)
+    {
+        *head = temp->next;
+        free(temp);
+        return;
+    }
+
+    while (temp != NULL && temp->data != data)
+    {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (temp == NULL)
+    {
+        printf("Elemento no encontrado\n");
+        return;
+    }
+
+    prev->next = temp->next;
+    free(temp);
+}
+
+Node* search(Node *head, int data)
+{
+    Node *temp = head;
+
+    while (temp != NULL)
+    {
+        if (temp->data == data)
+        {
+            return temp;
+        }
+        temp = temp->next;
+    }
+
+    return NULL;
+}
