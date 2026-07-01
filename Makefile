@@ -2,7 +2,7 @@ CC = gcc
 
 CFLAGS = -Wall -Iinclude
 
-SRC = main.c src/dynamic_array.c src/linked_list.c
+SRC = main.c src/dynamic_array.c src/linked_list.c src/doubly_linked_list.c
 
 TARGET = main
 
