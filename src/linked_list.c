@@ -118,3 +118,15 @@ Node* search(Node *head, int data)
 
     return NULL;
 }
+
+void freeList(Node *head)
+{
+    Node *temp;
+
+    while (head != NULL)
+    {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
+}

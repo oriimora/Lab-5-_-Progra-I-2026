@@ -18,4 +18,6 @@ void deleteNode(Node **head, int data);
 Node* search(Node *head, int data);
 void printList(Node *head);
 
+void freeList(Node *head);
+
 #endif

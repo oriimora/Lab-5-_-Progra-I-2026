@@ -40,5 +40,8 @@ int main()
         printf("No encontrado\n");
     }
 
+    freeArray(array);
+    freeList(head);
+
     return 0;
 }
