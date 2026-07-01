@@ -2,6 +2,7 @@
 #include "include/dynamic_array.h"
 #include "include/linked_list.h"
 #include "include/doubly_linked_list.h"
+#include "include/stack.h"
 
 int main()
 {
@@ -71,5 +72,22 @@ int main()
     }
 
     freeListD(dhead);
+// STACK
+    Stack *stack = createStack();
+
+    push(stack, 100);
+    push(stack, 200);
+    push(stack, 300);
+
+    printf("Top del stack: %d\n", peek(stack));
+
+    int popped = pop(stack);
+    printf("Se saco del stack: %d\n", popped);
+
+    printf("Top del stack ahora: %d\n", peek(stack));
+    printf("Esta vacio? %s\n", isEmpty(stack) ? "Si" : "No");
+
+    freeStack(stack);
+
     return 0;
 }
